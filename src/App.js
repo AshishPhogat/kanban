@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+// require('dotenv').config()
 import './App.css';
+import axios from 'axios';
+import { useContext, useEffect } from 'react';
+import { Routes ,Route ,useNavigate} from 'react-router-dom';
+
+//components
+import Navbar from './components/navbar';
+
+//pages
+import User from './pages/User';
+import Status from './pages/Status';
+import Priority from './pages/Priority';
+
+//context
+import { GOContext } from './Context/GoContext';
+
 
 function App() {
+  const navigate = useNavigate();
+  const {go,Setgo} = useContext(GOContext);
+
+  useEffect(()=>{
+     navigate(`/${go.Group}`)
+  },[go]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Navbar/>
+        <Routes>
+          <Route path="/" >
+            <Route path={`user`} element={<User/>} />
+            <Route path={`status`} element={<Status/>} />
+            <Route path={`priority`} element={<Priority/>} />
+          </Route>
+        </Routes>
+    </>
   );
 }
 
