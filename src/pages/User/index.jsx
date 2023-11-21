@@ -42,7 +42,7 @@ function User() {
                         return 0;
                     })
                 }
-                return <UserCard username={user.name} task={mytasks}/>;
+                return <UserCard key={user.id} username={user.name} task={mytasks}/>;
             })
 
             // <UserCard username="Ashish" task={[{title:"Do it",id:"Cam-demo",status:"Todo",tag:["Feature Request"]}]}/>

@@ -11,15 +11,15 @@ function UserCard(props) {
     return (
         <div className='flex text-sm flex-col gap-2 bg-gray-200 w-full'>
             <div className='flex ' style={{"justifyContent":"space-between"}}>
-                <div><a >{username} <a className='text-gray-400'>{tasks.length}</a></a></div>
+                <div>{username} <a className='text-gray-400'>{tasks.length}</a></div>
                 <div>
                     <FontAwesomeIcon icon={faPlus} />
                     <FontAwesomeIcon icon={faEllipsis} />
                 </div>
             </div>
 
-            {tasks.map((task)=>{
-                return <Card details={task}/>
+            {tasks.map((task,index)=>{
+                return <Card  key={index} details={task}/>
             })}
         </div>
     )

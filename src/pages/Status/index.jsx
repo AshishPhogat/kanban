@@ -42,7 +42,7 @@ function Status() {
                         return 0;
                     })
                 }
-                return <UserCard username={stat} task={mytasks}/>;
+                return <UserCard key={stat} username={stat} task={mytasks}/>;
             })
 
             // <UserCard username="Ashish" task={[{title:"Do it",id:"Cam-demo",status:"Todo",tag:["Feature Request"]}]}/>

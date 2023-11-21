@@ -49,7 +49,7 @@ function Priority() {
                         return 0;
                     })
                 }
-                return <UserCard username={check[p]} task={mytasks}/>;
+                return <UserCard key={p} username={check[p]} task={mytasks}/>;
             })
 
             // <UserCard username="Ashish" task={[{title:"Do it",id:"Cam-demo",status:"Todo",tag:["Feature Request"]}]}/>

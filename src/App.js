@@ -20,6 +20,7 @@ function App() {
   const navigate = useNavigate();
   const {go,Setgo} = useContext(GOContext);
 
+
   useEffect(()=>{
      navigate(`/${go.Group}`)
   },[go]);

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState,useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSliders,faChevronDown ,faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,6 +10,8 @@ function Navbar() {
     const [down,setDown] = useState(0);
     const {go,Setgo} = useContext(GOContext);
 
+    
+    
     const handleChange = (e) =>{
         e.preventDefault();
         Setgo(prev=>({

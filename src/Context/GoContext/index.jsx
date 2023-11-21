@@ -1,14 +1,22 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 
 export const GOContext= React.createContext();
 
 
 function GoContextProvider(props) {
 
-    const [go,Setgo] = useState({
-        Group: "user",
-        Order: "priority",
-    });
+  function getInitialState() {
+    const notes = localStorage.getItem('go_state')
+    return notes ? JSON.parse(notes) : {Group: "user" , Order : "priority"}
+  }
+  
+
+  let [go,Setgo] = useState(getInitialState);
+
+
+    useEffect(()=>{
+        window.localStorage.setItem('go_state',JSON.stringify(go));
+    },[go])
 
   return (
     <>
